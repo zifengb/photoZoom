@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片放大镜</title>
+<style>
+	*{
+		margin:0;
+		padding:0;	
+	}
+	body{
+		background:#ccc;	
+	}
+	#show_bigger_pic{
+		position:absolute;
+		top:200px;
+		left:200px;	
+	}
+	.s_pic{					/*小图区,小图的大小为324x220*/
+		width:324px;
+		height:220px;
+		float:left;
+		position:relative;	/*便于覆盖层的绝对定位*/
+	}
+	.b_pic{					/*大图区，谨记：大图的div宽或高不能超过小图的实际大小*/
+		width:324px;
+		height:220px;
+		float:left;
+		margin-left:10px;
+		display:none;
+		overflow:hidden;
+	}
+	.b_pic>img{
+		position:relative;	
+	}
+	.cover{
+		width:324px;
+		height:220px;
+		position:absolute;	/*覆盖层绝对定位*/
+		z-index:2;
+		left:0;
+		top:0;				
+	}
+	.float_span{
+		width:165px;
+		height:165px;
+		position:absolute;
+		left:0;
+		top:0;
+		z-index:1;
+		background:#B2DFEE;
+		opacity:.5;
+		display:none;	
+	}
+</style>
+
+<script src="zoom.js"></script>
+</head>
+
+<body>
+<div id="show_bigger_pic">				<!--最外层div-->
+	<span class="cover"></span>			<!--s_pic的遮层罩-->
+	<span class="float_span"></span>	<!--s_pic的半透明浮动层-->
+	<div class="s_pic">		
+		<img src="1.jpg" />
+	</div>
+	<div class="b_pic">
+		<img src="3.jpg" />
+	</div>
+</div>
+</body>
+</html>
